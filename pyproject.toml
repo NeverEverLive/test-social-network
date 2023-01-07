@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "test-task"
+version = "0.1.0"
+description = ""
+authors = ["NeverEverLive <nevereverlives@gmail.com>"]
+readme = "README.md"
+# packages = [{include = "test_task"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+fastapi = {extras = ["all"], version = "^0.88.0"}
+sqlalchemy = "^1.4.46"
+sqlalchemy-mixins = "^1.5.3"
+psycopg2-binary = "^2.9.5"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
