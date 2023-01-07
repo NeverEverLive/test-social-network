@@ -20,7 +20,7 @@ class UserModel(BaseModel):
     updated_at = Column(DateTime, server_default=func.now(), onupdate=datetime.datetime.now)
 
     posts = relationship(
-        "UserModel",
+        "PostModel",
         back_populates="user",
         uselist=True
     )
