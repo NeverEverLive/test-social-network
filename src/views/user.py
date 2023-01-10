@@ -14,6 +14,8 @@ router = APIRouter(prefix="/user")
 
 @router.post("/", response_model=UserResponse, status_code=201)
 async def register_user_endpoint(user: UserSchema):
+    """## To create user:
+    username and password"""
     return signup_user(user)
 
 

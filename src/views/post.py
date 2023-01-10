@@ -19,6 +19,9 @@ router = APIRouter(prefix="/posts")
 
 @router.post("/", response_model=PostResponse, status_code=201, dependencies=[Depends(JWTBearer())])
 async def create_post_endpoint(user: PostSchema, request: Request):
+    """## To create the post:
+    text
+    """
     return await create_post(user, request.state.user_id)
 
 
@@ -39,6 +42,11 @@ async def get_post_endpoint(post_id: str):
 
 @router.put("/", response_model=PostResponse, status_code=200, dependencies=[Depends(JWTBearer())])
 async def update_post_endpoint(post: PostSchema, request: Request):
+    """## To update the post:
+    id
+    user_id
+    text
+    """
     return await update_post(post, request.state.user_id)
 
 
