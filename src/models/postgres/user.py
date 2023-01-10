@@ -7,7 +7,7 @@ from sqlalchemy.types import LargeBinary
 from sqlalchemy.types import DateTime
 from sqlalchemy.dialects.postgresql import UUID
 
-from src.models.base import BaseModel
+from src.models.postgres.base import BaseModel
 
 
 class UserModel(BaseModel):

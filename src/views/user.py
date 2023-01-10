@@ -1,8 +1,7 @@
 from fastapi import APIRouter, Query, Depends, Response
-from fastapi.security import HTTPBearer
 
 from src.components.user.schemas import UserResponse, UserSchema, UsersResponse, UserLogin
-from src.components.user.methods import create_user
+from src.components.user.methods import signup_user
 from src.components.user.methods import get_users
 from src.components.user.methods import get_user
 from src.components.user.methods import update_user
@@ -15,7 +14,7 @@ router = APIRouter(prefix="/user")
 
 @router.post("/", response_model=UserResponse, status_code=201)
 async def register_user_endpoint(user: UserSchema):
-    return create_user(user)
+    return signup_user(user)
 
 
 @router.get("/", response_model=UsersResponse, status_code=200, dependencies=[Depends(JWTBearer())])

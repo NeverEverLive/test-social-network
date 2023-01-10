@@ -6,8 +6,8 @@ from pydantic import parse_obj_as
 import bcrypt
 
 from src.exceptions.user import UserNotExist
-from src.models.user import UserModel
-from src.models.base import get_session
+from src.models.postgres.user import UserModel
+from src.models.postgres.base import get_session
 from src.components.user.schemas import UserLogin, UserSchema
 from src.components.user.schemas import UserResponse
 from src.components.user.schemas import UsersResponse
@@ -73,6 +73,7 @@ def get_user(id: str) -> UserResponse:
                 success=True
             )
         raise UserNotExist(
+            status_code=404,
             message="This user doesn't exist"
         )
 
